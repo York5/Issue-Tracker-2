@@ -5,6 +5,7 @@ from django.shortcuts import render, redirect
 from django.urls import reverse
 from django.views.generic import DetailView, UpdateView, ListView
 
+from accounts.models import Profile
 from .forms import UserCreationForm, UserChangePasswordForm, UserChangeForm
 
 
@@ -32,6 +33,8 @@ def register_view(request, *args, **kwargs):
         form = UserCreationForm(data=request.POST)
         if form.is_valid():
             user = form.save()
+            user.save()
+            Profile.objects.create(user=user)
             login(request, user)
             return redirect('webapp:index')
     else:
