@@ -4,7 +4,7 @@
   "pk": 1,
   "fields": {
     "password": "pbkdf2_sha256$150000$RWUjjrCZPSn5$tNq2u9rSyWC0s0Rc5nA/W5kNynRZPQGJKCGJbGm04oQ=",
-    "last_login": "2019-10-31T12:08:32.680Z",
+    "last_login": "2019-11-04T12:20:57.023Z",
     "is_superuser": true,
     "username": "mike",
     "first_name": "",
@@ -76,7 +76,7 @@
   "pk": 8,
   "fields": {
     "password": "pbkdf2_sha256$150000$yspxEuVy7j8U$Yik+yD9bq5Vk1Noi455AKXLjVhVBo3/fJA5nD3L3wUI=",
-    "last_login": "2019-10-31T12:07:59.275Z",
+    "last_login": "2019-11-04T12:11:13.497Z",
     "is_superuser": false,
     "username": "Elon",
     "first_name": "Elon",
@@ -94,7 +94,7 @@
   "pk": 9,
   "fields": {
     "password": "pbkdf2_sha256$150000$c1Mt2FS7DWoX$HAaG0fallou6JNDBMe4o5nH57a54UZueS1UzvUA/QMs=",
-    "last_login": "2019-10-31T12:11:03.838Z",
+    "last_login": "2019-11-04T12:25:18.793Z",
     "is_superuser": false,
     "username": "Davy",
     "first_name": "Davy",
@@ -102,7 +102,7 @@
     "email": "davyjohns@mail.com",
     "is_staff": false,
     "is_active": true,
-    "date_joined": "2019-10-31T12:11:03.098Z",
+    "date_joined": "2019-10-31T12:11:03Z",
     "groups": [],
     "user_permissions": []
   }

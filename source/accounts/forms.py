@@ -69,6 +69,12 @@ class UserChangeForm(forms.ModelForm):
             profile.save()
         return profile
 
+    def clean_git_hub(self):
+        git_hub = self.cleaned_data.get('git_hub')
+        if "github.com" not in git_hub[:4]:
+            raise ValidationError('Invalid url.', code='invalid_url')
+        return git_hub
+
     class Meta:
         model = User
         fields = ['first_name', 'last_name', 'email']
