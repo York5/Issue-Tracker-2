@@ -45,6 +45,10 @@ class UserCreationForm(forms.ModelForm):
 
 
 class UserChangeForm(forms.ModelForm):
+    avatar = forms.ImageField(label='Avatar', required=False)
+    about = forms.CharField(max_length=2000, label='About',  required=False, widget=forms.Textarea)
+    git_hub = forms.URLField(max_length=200, required=False, label='Git Hub')
+
     def get_initial_for_field(self, field, field_name):
         if field_name in self.Meta.profile_fields:
             return getattr(self.instance.profile, field_name)
