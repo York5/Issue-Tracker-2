@@ -21,7 +21,14 @@
 {% endblock %}
 {% block content %}
     <h1 class="main_header">Profile: {{ user_obj.username }}</h1>
-    <p>First Name: <b>{{ user_obj.first_name }}</b></p>
-    <p>Last Name: {{ user_obj.last_name }}</p>
-    <p>Email: {{ user_obj.email }}</p>
+    {% if user_obj.profile.avatar %}
+        <div class="avatar_pic">
+        <img src="{{ user_obj.profile.avatar.url }}" width="250" height="250" alt="user picture">
+        </div>
+    {% endif %}
+    <p><b>First Name:</b> {{ user_obj.first_name }}</p>
+    <p><b>Last Name:</b> {{ user_obj.last_name }}</p>
+    <p><b>Email:</b> {{ user_obj.email }}</p>
+    <p><b>About:</b> {{ user_obj.profile.about }}</p>
+    <p><b>Git Hub:</b> {{ user_obj.profile.git_hub }}</p>
 {% endblock %}
