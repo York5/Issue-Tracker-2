@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block title %}Update Status{% endblock %}
+{% block menu %}
+    <nav class="navbar custom_nav navbar-expand-lg navbar-dark">
+        <a class="navbar-brand" href="{% url 'webapp:index' %}">Home</a>
+        <a class="navbar-brand" href="{% url 'webapp:status_index' %}">Statuses</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+</nav>
+{% endblock %}
+{% block content %}
+    <h1 class="main_header">Update this Status</h1>
+    <div class="form_container">
+        <form class="my_form" method="POST" action="{% url "webapp:status_update" status.pk %}">
+            {% include 'partial/form.html' with button_text="Update" %}
+        </form>
+    </div>
+{% endblock %}
