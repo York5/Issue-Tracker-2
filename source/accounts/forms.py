@@ -71,7 +71,7 @@ class UserChangeForm(forms.ModelForm):
 
     def clean_git_hub(self):
         git_hub = self.cleaned_data.get('git_hub')
-        if "github.com" not in git_hub[:4]:
+        if "github.com" not in git_hub[:18]:
             raise ValidationError('Invalid url.', code='invalid_url')
         return git_hub
 
