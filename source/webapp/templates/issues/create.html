@@ -12,7 +12,7 @@
 {% block content %}
     <h1 class="main_header">Add new Issue</h1>
     <div class="form_container">
-        <form class="my_form" method="POST" action="{% url "webapp:issue_add" %}">
+        <form class="my_form" method="POST" action="">
             {% include 'partial/form.html' with button_text="Create" %}
         </form>
     </div>

@@ -1,13 +1,11 @@
-from datetime import timedelta, datetime
 from urllib.parse import urlencode
 
-from django.contrib.auth.decorators import login_required
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.db.models import Q
-from django.shortcuts import redirect
+from django.shortcuts import redirect, get_object_or_404
 from django.urls import reverse, reverse_lazy
-from webapp.forms import IssueForm, SimpleSearchForm
-from webapp.models import Issue
+from webapp.forms import IssueForm, SimpleSearchForm, ProjectIssueForm
+from webapp.models import Issue, Project
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 
 
@@ -56,35 +54,72 @@ class IssueView(DetailView):
     model = Issue
 
 
-class IssueCreateView(CreateView):
+class IssueCreateView(LoginRequiredMixin, CreateView):
     form_class = IssueForm
     model = Issue
     template_name = 'issues/create.html'
-
-    def dispatch(self, request, *args, **kwargs):
-        if request.user.is_authenticated:
-            return super().dispatch(request, *args, **kwargs)
-        return redirect('accounts:login')
+    context_object_name = 'issue_obj'
 
     def get_success_url(self):
         return reverse('webapp:issue_view', kwargs={'pk': self.object.pk})
 
 
-class IssueUpdateView(LoginRequiredMixin, UpdateView):
+class IssueForProjectCreateView(LoginRequiredMixin, UserPassesTestMixin, CreateView):
+    model = Issue
+    template_name = 'issues/create.html'
+    form_class = ProjectIssueForm
+
+    def test_func(self):
+        print('I am here')
+        project_users = []
+        for user in self.get_project().users.all():
+            project_users.append(user)
+            print(user)
+        return self.request.user in project_users
+
+    def dispatch(self, request, *args, **kwargs):
+        self.project = self.get_project()
+        return super().dispatch(request, *args, **kwargs)
+
+    def form_valid(self, form):
+        self.object = self.project.issues.create(
+            **form.cleaned_data
+        )
+        return redirect('webapp:project_view', pk=self.project.pk)
+
+    def get_project(self):
+        project_pk = self.kwargs.get('pk')
+        return get_object_or_404(Project, pk=project_pk)
+
+
+class IssueUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Issue
     template_name = 'issues/update.html'
     form_class = IssueForm
     context_object_name = 'issue'
 
+    def test_func(self):
+        print('I am here')
+        project_users = []
+        for user in self.get_object().project.users.all():
+            project_users.append(user)
+        return self.request.user in project_users
+
     def get_success_url(self):
         return reverse('webapp:issue_view', kwargs={'pk': self.object.pk})
 
 
-class IssueDeleteView(LoginRequiredMixin, DeleteView):
+class IssueDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     model = Issue
     template_name = 'issues/delete.html'
     context_object_name = 'issue'
     success_url = reverse_lazy('webapp:index')
+
+    def test_func(self):
+        project_users = []
+        for user in self.get_object().project.users.all():
+            project_users.append(user)
+        return self.request.user in project_users
 
     def dispatch(self, request, *args, **kwargs):
         return super().dispatch(request, *args, **kwargs)

@@ -1,5 +1,5 @@
 from django.contrib import admin
-from webapp.models import Issue, Status, Type, Project
+from webapp.models import Issue, Status, Type, Project, Team
 
 
 class IssueAdmin(admin.ModelAdmin):
@@ -36,7 +36,13 @@ class TypeAdmin(admin.ModelAdmin):
     search_fields = ['type_name']
 
 
+class TeamAdmin(admin.ModelAdmin):
+    exclude = []
+    readonly_fields = ['date_started', 'date_finished']
+
+
 admin.site.register(Issue, IssueAdmin)
 admin.site.register(Project, ProjectAdmin)
 admin.site.register(Status, StatusAdmin)
 admin.site.register(Type, TypeAdmin)
+admin.site.register(Team, TeamAdmin)

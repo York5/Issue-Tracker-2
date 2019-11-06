@@ -1,7 +1,8 @@
 from django.urls import path
-from webapp.views import IndexView, IssueView, IssueCreateView, IssueUpdateView, IssueDeleteView, StatusIndexView,\
-    StatusCreateView, StatusDeleteView, StatusUpdateView, StatusView, TypeIndexView, TypeCreateView, TypeDeleteView,\
-    TypeUpdateView, TypeView, ProjectIndexView, ProjectView, ProjectCreateView, ProjectUpdateView, ProjectDeleteView
+from webapp.views import IndexView, IssueView, IssueCreateView, IssueForProjectCreateView, IssueUpdateView,\
+    IssueDeleteView, StatusIndexView, StatusCreateView, StatusDeleteView, StatusUpdateView, StatusView, TypeIndexView,\
+    TypeCreateView, TypeDeleteView, TypeUpdateView, TypeView, ProjectIndexView, ProjectView, ProjectCreateView,\
+    ProjectUpdateView, ProjectDeleteView
 
 urlpatterns = [
     path('', IndexView.as_view(), name='index'),
@@ -9,6 +10,7 @@ urlpatterns = [
     path('issue/<int:pk>', IssueView.as_view(), name='issue_view'),
     path('issue/<int:pk>/update/', IssueUpdateView.as_view(), name='issue_update'),
     path('issue/<int:pk>/delete/', IssueDeleteView.as_view(), name='issue_delete'),
+    path('projects/project/<int:pk>/add-issue/', IssueForProjectCreateView.as_view(), name='project_issue_create'),
 
     path('statuses', StatusIndexView.as_view(), name='status_index'),
     path('statuses/status/<int:pk>', StatusView.as_view(), name='status_view'),

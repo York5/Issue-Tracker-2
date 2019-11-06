@@ -10,7 +10,9 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-          <li class="nav-item active"><a class="new_review_btn" href="{% url 'webapp:issue_add' %}">+ Add Issue <span class="sr-only">(current)</span></a>
+          {% if request.user.is_authenticated %}
+{#          <li class="nav-item active"><a class="new_review_btn" href="{% url 'webapp:issue_add' %}">+ Add Issue <span class="sr-only">(current)</span></a>#}
+          {% endif %}
           <a class="new_review_btn" href="{% url 'webapp:status_index' %}">Statuses <span class="sr-only">(current)</span></a>
           <a class="new_review_btn" href="{% url 'webapp:type_index' %}">Types <span class="sr-only">(current)</span></a>
           <a class="new_review_btn" href="{% url 'webapp:project_index' %}">Projects <span class="sr-only">(current)</span></a>
