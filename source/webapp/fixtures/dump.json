@@ -121,222 +121,6 @@
   }
 },
 {
-  "model": "webapp.issue",
-  "pk": 1,
-  "fields": {
-    "summary": "Solve security issue with the remote storage",
-    "description": "The problem here is that when using third-party file sharing services, the data is typically taken outside of the company\u2019s IT environment, and that means that the data\u2019s privacy settings are beyond the control of the enterprise.  The best way to avoid such a risk is by ensuring you\u2019re your provider encrypts your files during storage, as well as transit, within a range of 128 to 256-bit.",
-    "status": 1,
-    "type": 2,
-    "project": null,
-    "created_at": "2019-09-27T07:19:07.946Z"
-  }
-},
-{
-  "model": "webapp.issue",
-  "pk": 2,
-  "fields": {
-    "summary": "Find a suitable VPN provider",
-    "description": "A VPN (Virtual Private Network) will be a great additional tool for the project that will help protect the privacy and increase the security on the Internet. It basically connects two computers securely and privately on the internet",
-    "status": 2,
-    "type": 1,
-    "project": null,
-    "created_at": "2019-09-27T07:22:18.934Z"
-  }
-},
-{
-  "model": "webapp.issue",
-  "pk": 3,
-  "fields": {
-    "summary": "Optimize project's source code",
-    "description": "The project may be further optimized so that it becomes a smaller size, consumes less memory, executes more rapidly, or performs fewer input/output operations. This enhancement could improve the overall usability of our program.",
-    "status": 3,
-    "type": 3,
-    "project": 4,
-    "created_at": "2019-09-27T07:25:47.873Z"
-  }
-},
-{
-  "model": "webapp.issue",
-  "pk": 4,
-  "fields": {
-    "summary": "Find Investors for future projects",
-    "description": "Call the closest university with a strong business or entrepreneurial program. They generally have a strong network of investors and successful entrepreneurs from their faculty, alumni, and guest speakers. Ask them if they might be able to point you in the direction resources.",
-    "status": 1,
-    "type": 1,
-    "project": 2,
-    "created_at": "2019-09-27T07:29:40.715Z"
-  }
-},
-{
-  "model": "webapp.issue",
-  "pk": 5,
-  "fields": {
-    "summary": "Resolve printer Issues",
-    "description": "Printers are great when they work, but when they don't it can be extremely frustrating and even cause delays to the project. It is necessary to solve a couple of problems, including not printing at all through to blocked nozzles and other issues.",
-    "status": 2,
-    "type": 1,
-    "project": 2,
-    "created_at": "2019-09-27T07:33:36.122Z"
-  }
-},
-{
-  "model": "webapp.issue",
-  "pk": 6,
-  "fields": {
-    "summary": "Main website page contains grammatical mistakes",
-    "description": "The main website index page has multiple grammatical mistakes that need to be fixed ASAP. This puts a stain on our reputation and presents our company in a bad view.",
-    "status": 3,
-    "type": 2,
-    "project": null,
-    "created_at": "2019-09-27T07:36:06.298Z"
-  }
-},
-{
-  "model": "webapp.issue",
-  "pk": 7,
-  "fields": {
-    "summary": "Solve wiring issues",
-    "description": "European service module experiences wiring problems including a number of short circuits.",
-    "status": 1,
-    "type": 2,
-    "project": 1,
-    "created_at": "2019-10-10T21:07:17.153Z"
-  }
-},
-{
-  "model": "webapp.issue",
-  "pk": 8,
-  "fields": {
-    "summary": "Improve orbital habitat",
-    "description": "The habitat requires more living space for astronauts to comfortably stay at the station for long periods of time.",
-    "status": 2,
-    "type": 3,
-    "project": 1,
-    "created_at": "2019-10-11T07:26:37.705Z"
-  }
-},
-{
-  "model": "webapp.issue",
-  "pk": 9,
-  "fields": {
-    "summary": "Problem with oxydiser tanks",
-    "description": "Oxydiser tank experience anomaly during last testing. Need to investigate.",
-    "status": 1,
-    "type": 2,
-    "project": 1,
-    "created_at": "2019-10-11T07:27:17.049Z"
-  }
-},
-{
-  "model": "webapp.issue",
-  "pk": 10,
-  "fields": {
-    "summary": "Test Couplings",
-    "description": "New couplings that will be used to connect spaceships to the station need to be tested.",
-    "status": 5,
-    "type": 1,
-    "project": 1,
-    "created_at": "2019-10-11T07:27:50.568Z"
-  }
-},
-{
-  "model": "webapp.issue",
-  "pk": 11,
-  "fields": {
-    "summary": "Fix bent mirror",
-    "description": "The 5 meter diameter telescope mirror has bin damaged and needs fixing.",
-    "status": 1,
-    "type": 1,
-    "project": 3,
-    "created_at": "2019-10-11T10:14:39.309Z"
-  }
-},
-{
-  "model": "webapp.issue",
-  "pk": 12,
-  "fields": {
-    "summary": "Fix propultion",
-    "description": "Troubleshoot main telescope engine propulsion system",
-    "status": 3,
-    "type": 2,
-    "project": 3,
-    "created_at": "2019-10-11T12:24:33.287Z"
-  }
-},
-{
-  "model": "webapp.issue",
-  "pk": 13,
-  "fields": {
-    "summary": "Design seats for space travel",
-    "description": "New generation of space seats need to be comfortable and sustain heavy loads",
-    "status": 2,
-    "type": 1,
-    "project": 9,
-    "created_at": "2019-10-11T12:25:34.723Z"
-  }
-},
-{
-  "model": "webapp.issue",
-  "pk": 14,
-  "fields": {
-    "summary": "Find Funding for Rocket",
-    "description": "The funding has ran out so the project is in dire need of financing. Write letters to Congress to request new budget.",
-    "status": 1,
-    "type": 1,
-    "project": 11,
-    "created_at": "2019-10-11T12:26:44.995Z"
-  }
-},
-{
-  "model": "webapp.issue",
-  "pk": 15,
-  "fields": {
-    "summary": "Develope abort system",
-    "description": "Suborbital launch system needs new thrusters in order for the cheppard spacecraft to be ready by December",
-    "status": 3,
-    "type": 3,
-    "project": 12,
-    "created_at": "2019-10-11T12:27:54.679Z"
-  }
-},
-{
-  "model": "webapp.issue",
-  "pk": 16,
-  "fields": {
-    "summary": "Find ways to lower cost of ticketr",
-    "description": "Ticket cost for space flight is expected to be too high. Demand will be low. Search for ways to improve",
-    "status": 1,
-    "type": 3,
-    "project": 12,
-    "created_at": "2019-10-11T12:28:49.321Z"
-  }
-},
-{
-  "model": "webapp.issue",
-  "pk": 17,
-  "fields": {
-    "summary": "Troubleshoot new Version",
-    "description": "New version of autopilot is buggy and needs further testing. Recall the current update and investigate!",
-    "status": 1,
-    "type": 2,
-    "project": 10,
-    "created_at": "2019-10-11T12:30:00.025Z"
-  }
-},
-{
-  "model": "webapp.issue",
-  "pk": 18,
-  "fields": {
-    "summary": "Get new supplier for cameras",
-    "description": "Current supplier is no longer reliable. Find new supplier!",
-    "status": 3,
-    "type": 1,
-    "project": 10,
-    "created_at": "2019-10-11T12:30:53.371Z"
-  }
-},
-{
   "model": "webapp.status",
   "pk": 1,
   "fields": {
@@ -390,7 +174,7 @@
   "pk": 1,
   "fields": {
     "password": "pbkdf2_sha256$150000$RWUjjrCZPSn5$tNq2u9rSyWC0s0Rc5nA/W5kNynRZPQGJKCGJbGm04oQ=",
-    "last_login": "2019-11-04T12:20:57.023Z",
+    "last_login": "2019-11-07T09:50:49.944Z",
     "is_superuser": true,
     "username": "mike",
     "first_name": "",
@@ -462,7 +246,7 @@
   "pk": 8,
   "fields": {
     "password": "pbkdf2_sha256$150000$yspxEuVy7j8U$Yik+yD9bq5Vk1Noi455AKXLjVhVBo3/fJA5nD3L3wUI=",
-    "last_login": "2019-11-04T12:11:13.497Z",
+    "last_login": "2019-11-07T10:34:00.220Z",
     "is_superuser": false,
     "username": "Elon",
     "first_name": "Elon",
@@ -480,7 +264,7 @@
   "pk": 9,
   "fields": {
     "password": "pbkdf2_sha256$150000$c1Mt2FS7DWoX$HAaG0fallou6JNDBMe4o5nH57a54UZueS1UzvUA/QMs=",
-    "last_login": "2019-11-04T12:25:18.793Z",
+    "last_login": "2019-11-06T21:21:26.657Z",
     "is_superuser": false,
     "username": "Davy",
     "first_name": "Davy",
@@ -491,6 +275,508 @@
     "date_joined": "2019-10-31T12:11:03Z",
     "groups": [],
     "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 10,
+  "fields": {
+    "password": "pbkdf2_sha256$150000$AUbalB158Uoo$MvbJCenGZJ0ZtEJdLusTpY+VpMh+uOOEky/fAKcatdw=",
+    "last_login": "2019-11-04T19:17:15.627Z",
+    "is_superuser": false,
+    "username": "Mary",
+    "first_name": "Mary",
+    "last_name": "Jane",
+    "email": "maryjane@mail.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2019-11-04T19:17:14.837Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 11,
+  "fields": {
+    "password": "pbkdf2_sha256$150000$ZIpL9XCE9fFr$B8vH0VcqXjOWDTVUgHIQoeJGpT7vGMlEG7ADwk/ntAY=",
+    "last_login": "2019-11-07T09:52:33.463Z",
+    "is_superuser": true,
+    "username": "admin",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2019-11-07T09:51:56.044Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "webapp.team",
+  "pk": 1,
+  "fields": {
+    "project": 1,
+    "user": 9,
+    "date_started": "2019-11-06T14:30:55.164Z",
+    "date_finished": "2019-11-06T14:30:55.164Z"
+  }
+},
+{
+  "model": "webapp.team",
+  "pk": 2,
+  "fields": {
+    "project": 2,
+    "user": 8,
+    "date_started": "2019-11-06T14:32:25.538Z",
+    "date_finished": "2019-11-06T14:32:25.538Z"
+  }
+},
+{
+  "model": "webapp.team",
+  "pk": 3,
+  "fields": {
+    "project": 3,
+    "user": 7,
+    "date_started": "2019-11-06T14:32:36.538Z",
+    "date_finished": "2019-11-06T14:32:36.538Z"
+  }
+},
+{
+  "model": "webapp.team",
+  "pk": 4,
+  "fields": {
+    "project": 4,
+    "user": 6,
+    "date_started": "2019-11-06T14:33:19.675Z",
+    "date_finished": "2019-11-06T14:33:19.675Z"
+  }
+},
+{
+  "model": "webapp.team",
+  "pk": 5,
+  "fields": {
+    "project": 4,
+    "user": 8,
+    "date_started": "2019-11-06T14:33:28.238Z",
+    "date_finished": "2019-11-06T14:33:28.238Z"
+  }
+},
+{
+  "model": "webapp.team",
+  "pk": 6,
+  "fields": {
+    "project": 9,
+    "user": 1,
+    "date_started": "2019-11-06T14:33:40.584Z",
+    "date_finished": "2019-11-06T14:33:40.584Z"
+  }
+},
+{
+  "model": "webapp.team",
+  "pk": 7,
+  "fields": {
+    "project": 9,
+    "user": 8,
+    "date_started": "2019-11-06T14:33:49.695Z",
+    "date_finished": "2019-11-06T14:33:49.695Z"
+  }
+},
+{
+  "model": "webapp.team",
+  "pk": 8,
+  "fields": {
+    "project": 10,
+    "user": 8,
+    "date_started": "2019-11-06T14:34:07.126Z",
+    "date_finished": "2019-11-06T14:34:07.126Z"
+  }
+},
+{
+  "model": "webapp.team",
+  "pk": 9,
+  "fields": {
+    "project": 11,
+    "user": 1,
+    "date_started": "2019-11-06T14:34:21.485Z",
+    "date_finished": "2019-11-06T14:34:21.485Z"
+  }
+},
+{
+  "model": "webapp.team",
+  "pk": 10,
+  "fields": {
+    "project": 6,
+    "user": 2,
+    "date_started": "2019-11-06T14:34:29.403Z",
+    "date_finished": "2019-11-06T14:34:29.403Z"
+  }
+},
+{
+  "model": "webapp.team",
+  "pk": 11,
+  "fields": {
+    "project": 7,
+    "user": 2,
+    "date_started": "2019-11-06T14:34:42.916Z",
+    "date_finished": "2019-11-06T14:34:42.916Z"
+  }
+},
+{
+  "model": "webapp.team",
+  "pk": 12,
+  "fields": {
+    "project": 8,
+    "user": 2,
+    "date_started": "2019-11-06T14:34:50.506Z",
+    "date_finished": "2019-11-06T14:34:50.506Z"
+  }
+},
+{
+  "model": "webapp.team",
+  "pk": 13,
+  "fields": {
+    "project": 12,
+    "user": 6,
+    "date_started": "2019-11-06T14:35:10.707Z",
+    "date_finished": "2019-11-06T14:35:10.707Z"
+  }
+},
+{
+  "model": "webapp.issue",
+  "pk": 1,
+  "fields": {
+    "summary": "Solve security issue with the remote storage",
+    "description": "The problem here is that when using third-party file sharing services, the data is typically taken outside of the company\u2019s IT environment, and that means that the data\u2019s privacy settings are beyond the control of the enterprise.  The best way to avoid such a risk is by ensuring you\u2019re your provider encrypts your files during storage, as well as transit, within a range of 128 to 256-bit.",
+    "status": 1,
+    "type": 2,
+    "project": null,
+    "created_at": "2019-09-27T07:19:07.946Z",
+    "created_by": null,
+    "assigned_to": null
+  }
+},
+{
+  "model": "webapp.issue",
+  "pk": 2,
+  "fields": {
+    "summary": "Find a suitable VPN provider",
+    "description": "A VPN (Virtual Private Network) will be a great additional tool for the project that will help protect the privacy and increase the security on the Internet. It basically connects two computers securely and privately on the internet",
+    "status": 2,
+    "type": 1,
+    "project": null,
+    "created_at": "2019-09-27T07:22:18.934Z",
+    "created_by": null,
+    "assigned_to": null
+  }
+},
+{
+  "model": "webapp.issue",
+  "pk": 3,
+  "fields": {
+    "summary": "Optimize project's source code",
+    "description": "The project may be further optimized so that it becomes a smaller size, consumes less memory, executes more rapidly, or performs fewer input/output operations. This enhancement could improve the overall usability of our program.",
+    "status": 3,
+    "type": 3,
+    "project": 4,
+    "created_at": "2019-09-27T07:25:47.873Z",
+    "created_by": null,
+    "assigned_to": null
+  }
+},
+{
+  "model": "webapp.issue",
+  "pk": 4,
+  "fields": {
+    "summary": "Find Investors for future projects",
+    "description": "Call the closest university with a strong business or entrepreneurial program. They generally have a strong network of investors and successful entrepreneurs from their faculty, alumni, and guest speakers. Ask them if they might be able to point you in the direction resources.",
+    "status": 1,
+    "type": 1,
+    "project": 2,
+    "created_at": "2019-09-27T07:29:40.715Z",
+    "created_by": null,
+    "assigned_to": null
+  }
+},
+{
+  "model": "webapp.issue",
+  "pk": 5,
+  "fields": {
+    "summary": "Resolve printer Issues",
+    "description": "Printers are great when they work, but when they don't it can be extremely frustrating and even cause delays to the project. It is necessary to solve a couple of problems, including not printing at all through to blocked nozzles and other issues.",
+    "status": 2,
+    "type": 1,
+    "project": 2,
+    "created_at": "2019-09-27T07:33:36.122Z",
+    "created_by": null,
+    "assigned_to": null
+  }
+},
+{
+  "model": "webapp.issue",
+  "pk": 6,
+  "fields": {
+    "summary": "Main website page contains grammatical mistakes",
+    "description": "The main website index page has multiple grammatical mistakes that need to be fixed ASAP. This puts a stain on our reputation and presents our company in a bad view.",
+    "status": 3,
+    "type": 2,
+    "project": null,
+    "created_at": "2019-09-27T07:36:06.298Z",
+    "created_by": null,
+    "assigned_to": null
+  }
+},
+{
+  "model": "webapp.issue",
+  "pk": 7,
+  "fields": {
+    "summary": "Solve wiring issues",
+    "description": "European service module experiences wiring problems including a number of short circuits.",
+    "status": 1,
+    "type": 2,
+    "project": 1,
+    "created_at": "2019-10-10T21:07:17.153Z",
+    "created_by": null,
+    "assigned_to": null
+  }
+},
+{
+  "model": "webapp.issue",
+  "pk": 8,
+  "fields": {
+    "summary": "Improve orbital habitat",
+    "description": "The habitat requires more living space for astronauts to comfortably stay at the station for long periods of time.",
+    "status": 2,
+    "type": 3,
+    "project": 1,
+    "created_at": "2019-10-11T07:26:37.705Z",
+    "created_by": null,
+    "assigned_to": null
+  }
+},
+{
+  "model": "webapp.issue",
+  "pk": 9,
+  "fields": {
+    "summary": "Problem with oxydiser tanks",
+    "description": "Oxydiser tank experience anomaly during last testing. Need to investigate.",
+    "status": 1,
+    "type": 2,
+    "project": 1,
+    "created_at": "2019-10-11T07:27:17.049Z",
+    "created_by": null,
+    "assigned_to": null
+  }
+},
+{
+  "model": "webapp.issue",
+  "pk": 10,
+  "fields": {
+    "summary": "Test Couplings",
+    "description": "New couplings that will be used to connect spaceships to the station need to be tested.",
+    "status": 5,
+    "type": 1,
+    "project": 1,
+    "created_at": "2019-10-11T07:27:50.568Z",
+    "created_by": null,
+    "assigned_to": null
+  }
+},
+{
+  "model": "webapp.issue",
+  "pk": 11,
+  "fields": {
+    "summary": "Fix bent mirror",
+    "description": "The 5 meter diameter telescope mirror has bin damaged and needs fixing.",
+    "status": 1,
+    "type": 1,
+    "project": 3,
+    "created_at": "2019-10-11T10:14:39.309Z",
+    "created_by": null,
+    "assigned_to": null
+  }
+},
+{
+  "model": "webapp.issue",
+  "pk": 12,
+  "fields": {
+    "summary": "Fix propultion",
+    "description": "Troubleshoot main telescope engine propulsion system",
+    "status": 3,
+    "type": 2,
+    "project": 3,
+    "created_at": "2019-10-11T12:24:33.287Z",
+    "created_by": null,
+    "assigned_to": null
+  }
+},
+{
+  "model": "webapp.issue",
+  "pk": 13,
+  "fields": {
+    "summary": "Design seats for space travel",
+    "description": "New generation of space seats need to be comfortable and sustain heavy loads",
+    "status": 2,
+    "type": 1,
+    "project": 9,
+    "created_at": "2019-10-11T12:25:34.723Z",
+    "created_by": null,
+    "assigned_to": null
+  }
+},
+{
+  "model": "webapp.issue",
+  "pk": 14,
+  "fields": {
+    "summary": "Find Funding for Rocket",
+    "description": "The funding has ran out so the project is in dire need of financing. Write letters to Congress to request new budget.",
+    "status": 1,
+    "type": 1,
+    "project": 11,
+    "created_at": "2019-10-11T12:26:44.995Z",
+    "created_by": null,
+    "assigned_to": null
+  }
+},
+{
+  "model": "webapp.issue",
+  "pk": 15,
+  "fields": {
+    "summary": "Develope abort system",
+    "description": "Suborbital launch system needs new thrusters in order for the cheppard spacecraft to be ready by December",
+    "status": 3,
+    "type": 3,
+    "project": 12,
+    "created_at": "2019-10-11T12:27:54.679Z",
+    "created_by": null,
+    "assigned_to": null
+  }
+},
+{
+  "model": "webapp.issue",
+  "pk": 16,
+  "fields": {
+    "summary": "Find ways to lower cost of tickets",
+    "description": "Ticket cost for space flight is expected to be too high. Demand will be low. Search for ways to improve",
+    "status": 1,
+    "type": 3,
+    "project": 12,
+    "created_at": "2019-10-11T12:28:49.321Z",
+    "created_by": null,
+    "assigned_to": null
+  }
+},
+{
+  "model": "webapp.issue",
+  "pk": 17,
+  "fields": {
+    "summary": "Troubleshoot new Version",
+    "description": "New version of autopilot is buggy and needs further testing. Recall the current update and investigate!",
+    "status": 1,
+    "type": 2,
+    "project": 10,
+    "created_at": "2019-10-11T12:30:00.025Z",
+    "created_by": null,
+    "assigned_to": null
+  }
+},
+{
+  "model": "webapp.issue",
+  "pk": 18,
+  "fields": {
+    "summary": "Get new supplier for cameras",
+    "description": "Current supplier is no longer reliable. Find new supplier!",
+    "status": 3,
+    "type": 1,
+    "project": 10,
+    "created_at": "2019-10-11T12:30:53.371Z",
+    "created_by": null,
+    "assigned_to": null
+  }
+},
+{
+  "model": "webapp.issue",
+  "pk": 19,
+  "fields": {
+    "summary": "Fix gas thrusters",
+    "description": "Fix leaking gas thrusters that are very poisonous!",
+    "status": 1,
+    "type": 2,
+    "project": 12,
+    "created_at": "2019-11-06T18:18:13.925Z",
+    "created_by": null,
+    "assigned_to": null
+  }
+},
+{
+  "model": "webapp.issue",
+  "pk": 21,
+  "fields": {
+    "summary": "test issue",
+    "description": "Text for test issue",
+    "status": 1,
+    "type": 2,
+    "project": 4,
+    "created_at": "2019-11-06T20:58:23.301Z",
+    "created_by": null,
+    "assigned_to": null
+  }
+},
+{
+  "model": "webapp.issue",
+  "pk": 22,
+  "fields": {
+    "summary": "test issue",
+    "description": "bla bla",
+    "status": 1,
+    "type": 1,
+    "project": 12,
+    "created_at": "2019-11-06T21:17:55.530Z",
+    "created_by": null,
+    "assigned_to": null
+  }
+},
+{
+  "model": "webapp.issue",
+  "pk": 23,
+  "fields": {
+    "summary": "Find new pilots",
+    "description": "The previous pilots died in a recent crash.",
+    "status": 1,
+    "type": 1,
+    "project": 9,
+    "created_at": "2019-11-06T21:24:58.410Z",
+    "created_by": null,
+    "assigned_to": null
+  }
+},
+{
+  "model": "webapp.issue",
+  "pk": 24,
+  "fields": {
+    "summary": "Hot fire test",
+    "description": "Preflight testin of the Raptor Engines",
+    "status": 2,
+    "type": 3,
+    "project": 9,
+    "created_at": "2019-11-06T21:26:51.614Z",
+    "created_by": null,
+    "assigned_to": null
+  }
+},
+{
+  "model": "webapp.issue",
+  "pk": 25,
+  "fields": {
+    "summary": "Paint the window",
+    "description": "Apply new space paint to the windshield",
+    "status": 1,
+    "type": 3,
+    "project": 9,
+    "created_at": "2019-11-07T12:25:22.588Z",
+    "created_by": 8,
+    "assigned_to": 8
   }
 }
 ]

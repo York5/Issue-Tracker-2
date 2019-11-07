@@ -115,6 +115,16 @@ class IssueUpdateView(UserPassesTestMixin, UpdateView):
             project_users.append(user)
         return self.request.user in project_users
 
+    def get_form_kwargs(self):
+        kwargs = super().get_form_kwargs()
+        if hasattr(self, 'object'):
+            kwargs.update({'project': self.get_project()})
+        return kwargs
+
+    def get_project(self):
+        project_pk = self.kwargs.get('pk')
+        return get_object_or_404(Project, pk=project_pk)
+
     def get_success_url(self):
         return reverse('webapp:issue_view', kwargs={'pk': self.object.pk})
 

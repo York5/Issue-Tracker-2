@@ -9,6 +9,10 @@ class IssueForm(forms.ModelForm):
         model = Issue
         exclude = ['created_at', 'created_by']
 
+    def __init__(self, project, *args, **kwargs):
+        super(IssueForm, self).__init__(*args, **kwargs)
+        self.fields['assigned_to'].queryset = User.objects.filter(projects=project)
+
 
 class ProjectIssueForm(forms.ModelForm):
     class Meta:

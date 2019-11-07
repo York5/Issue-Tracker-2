@@ -38,9 +38,10 @@
         {% if is_paginated %}
             {% include 'partial/pagination.html' %}
         {% endif %}
+        <hr>
     {% if request.user.is_authenticated %}
         <form action="{% url 'webapp:project_issue_create' project.pk %}" method="POST" id="add_issue">
-            {% include 'partial/form.html' with button_text='Add' %}
+            {% include 'partial/form.html' with button_text='Add New Issue' %}
         </form>
     {% endif %}
     </div>
