@@ -19,10 +19,6 @@ class Project(models.Model):
         return self.name
 
 
-def get_admin():
-    return User.objects.get(username='admin').id
-
-
 class Issue(models.Model):
     summary = models.CharField(max_length=100, null=False, blank=False, verbose_name='Name')
     description = models.TextField(max_length=2000, null=True, blank=True, verbose_name='Description')
@@ -33,9 +29,9 @@ class Issue(models.Model):
     project = models.ForeignKey('Project', on_delete=models.PROTECT, null=True, blank=False, verbose_name='Project',
                                 related_name='issues')
     created_at = models.DateTimeField(auto_now_add=True, verbose_name='Time Created')
-    created_by = models.ForeignKey(User, null=False, blank=False, default=get_admin, verbose_name='Creator',
+    created_by = models.ForeignKey(User, null=True, blank=False, verbose_name='Creator',
                                    on_delete=models.PROTECT, related_name='issues_created')
-    assigned_to = models.ForeignKey(User, null=False, blank=False, default=get_admin, verbose_name='Assigned',
+    assigned_to = models.ForeignKey(User, null=True, blank=False, verbose_name='Assigned',
                                     on_delete=models.PROTECT, related_name='issues_assigned')
 
     def __str__(self):

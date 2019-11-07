@@ -60,6 +60,10 @@ class IssueCreateView(LoginRequiredMixin, CreateView):
     template_name = 'issues/create.html'
     context_object_name = 'issue_obj'
 
+    def form_valid(self, form):
+        form.instance.created_by = self.request.user
+        return super().form_valid(form)
+
     def get_success_url(self):
         return reverse('webapp:issue_view', kwargs={'pk': self.object.pk})
 
@@ -83,6 +87,7 @@ class IssueForProjectCreateView(LoginRequiredMixin, UserPassesTestMixin, CreateV
 
     def form_valid(self, form):
         self.object = self.project.issues.create(
+            created_by=self.request.user,
             **form.cleaned_data
         )
         return redirect('webapp:project_view', pk=self.project.pk)

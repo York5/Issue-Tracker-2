@@ -5,13 +5,13 @@ from webapp.models import Status, Type, Issue, Project
 class IssueForm(forms.ModelForm):
     class Meta:
         model = Issue
-        exclude = ['created_at']
+        exclude = ['created_at', 'created_by']
 
 
 class ProjectIssueForm(forms.ModelForm):
     class Meta:
         model = Issue
-        exclude = ['created_at', 'project']
+        exclude = ['created_at', 'project', 'created_by']
 
 
 class StatusForm(forms.ModelForm):
