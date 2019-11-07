@@ -54,6 +54,7 @@ class UserChangeForm(forms.ModelForm):
             return getattr(self.instance.profile, field_name)
         return super().get_initial_for_field(field, field_name)
 
+
     def save(self, commit=True):
         user = super().save(commit=commit)
         user.profile = self.save_profile(commit)

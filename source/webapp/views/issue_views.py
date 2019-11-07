@@ -68,7 +68,7 @@ class IssueCreateView(LoginRequiredMixin, CreateView):
         return reverse('webapp:issue_view', kwargs={'pk': self.object.pk})
 
 
-class IssueForProjectCreateView(LoginRequiredMixin, UserPassesTestMixin, CreateView):
+class IssueForProjectCreateView(UserPassesTestMixin, CreateView):
     model = Issue
     template_name = 'issues/create.html'
     form_class = ProjectIssueForm
@@ -92,19 +92,24 @@ class IssueForProjectCreateView(LoginRequiredMixin, UserPassesTestMixin, CreateV
         )
         return redirect('webapp:project_view', pk=self.project.pk)
 
+    def get_form_kwargs(self):
+        kwargs = super().get_form_kwargs()
+        if hasattr(self, 'object'):
+            kwargs.update({'project': self.get_project()})
+        return kwargs
+
     def get_project(self):
         project_pk = self.kwargs.get('pk')
         return get_object_or_404(Project, pk=project_pk)
 
 
-class IssueUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
+class IssueUpdateView(UserPassesTestMixin, UpdateView):
     model = Issue
     template_name = 'issues/update.html'
     form_class = IssueForm
     context_object_name = 'issue'
 
     def test_func(self):
-        print('I am here')
         project_users = []
         for user in self.get_object().project.users.all():
             project_users.append(user)
@@ -114,7 +119,7 @@ class IssueUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
         return reverse('webapp:issue_view', kwargs={'pk': self.object.pk})
 
 
-class IssueDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
+class IssueDeleteView(UserPassesTestMixin, DeleteView):
     model = Issue
     template_name = 'issues/delete.html'
     context_object_name = 'issue'
