@@ -4,9 +4,10 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.core.paginator import Paginator
 from django.db.models import Q
 from django.http import HttpResponseRedirect
+from django.shortcuts import get_object_or_404
 from django.urls import reverse, reverse_lazy
 from webapp.forms import ProjectForm, SimpleSearchForm
-from webapp.models import Project, STATUS_CHOICES
+from webapp.models import Project, STATUS_CHOICES, Team
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 
 
@@ -54,11 +55,17 @@ class ProjectView(DetailView):
         paginator = Paginator(issues, 3, 0)
         page_number = self.request.GET.get('page', 1)
         page = paginator.get_page(page_number)
+        teams = Team.objects.filter(project=self.get_project()).select_related()
+        context['teams'] = teams
         context['paginator'] = paginator
         context['page_obj'] = page
         context['issues'] = page.object_list
         context['is_paginated'] = page.has_other_pages()
         return context
+
+    def get_project(self):
+        project_pk = self.kwargs.get('pk')
+        return get_object_or_404(Project, pk=project_pk)
 
 
 class ProjectCreateView(LoginRequiredMixin, CreateView):

@@ -16,7 +16,7 @@ class ProjectAdmin(admin.ModelAdmin):
     list_filter = ['name']
     list_display_links = ['pk', 'name']
     search_fields = ['name']
-    readonly_fields = ['created_at', 'updated_at']
+    readonly_fields = ['created_at', 'updated_at', 'users']
     exclude = []
 
 

@@ -21,6 +21,11 @@
     {% else %}
         <h5>Project Status: <b class="closed_status">{{ project.get_status_display }}</b></h5>
     {% endif %}
+    <h5>Project Users:</h5>
+    {% for team in teams %}
+        <h5><b>{{ team.user.first_name }} {{ team.user.last_name }}</b></h5>
+        <h5>Started: {{ team.date_started}}</h5>
+    {% endfor %}
     <p><br>{{ project.description|escape|linebreaks }}</p>
     <hr>
     <h2 class="issues_header"><b>Issues: </b></h2>

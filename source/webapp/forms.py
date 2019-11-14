@@ -37,6 +37,11 @@ class TypeForm(forms.ModelForm):
 
 
 class ProjectForm(forms.ModelForm):
+    users = forms.ModelMultipleChoiceField(
+                       widget=forms.CheckboxSelectMultiple,
+                       queryset=User.objects.all()
+                    )
+
     class Meta:
         model = Project
         exclude = ['created_at', 'updated_at']

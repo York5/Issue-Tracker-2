@@ -15,7 +15,11 @@
     {% if field.errors %}
         <p>{{ field|add_class:'field_error form-control' }}</p>
     {% else %}
-        <p>{{ field|attr:"rows:3"|add_class:'form-control' }}</p>
+        {% if field.name == 'users' %}
+            <p>{{ field }}</p>
+        {% else %}
+            <p>{{ field|attr:"rows:3"|add_class:'form-control' }}</p>
+        {% endif %}
     {% endif %}
     {% for error in field.errors %}
        <p class="form-error">{{ error }}</p>

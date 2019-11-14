@@ -74,7 +74,6 @@ class IssueForProjectCreateView(UserPassesTestMixin, CreateView):
     form_class = ProjectIssueForm
 
     def test_func(self):
-        print('I am here')
         project_users = []
         for user in self.get_project().users.all():
             project_users.append(user)
