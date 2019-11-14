@@ -1,2 +1,11 @@
 login: admin
 password: 1234
+
+login: Developer
+password: 123
+
+login: Project_Manager
+password: 123
+
+login: Team_Lead
+password: 123

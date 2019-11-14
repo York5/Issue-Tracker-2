@@ -61,8 +61,8 @@ class Team(models.Model):
                                 related_name='project_user')
     user = models.ForeignKey(User, on_delete=models.PROTECT, null=True, blank=False, verbose_name='User',
                              related_name='user_project')
-    date_started = models.DateTimeField(auto_now_add=True, verbose_name='Time Started')
-    date_finished = models.DateTimeField(auto_now=True, verbose_name='Time Finished')
+    date_started = models.DateTimeField(null=True, blank=True, verbose_name='Time Started')
+    date_finished = models.DateTimeField(null=True, blank=True, verbose_name='Time Finished')
 
     def __str__(self):
         return 'User {} in project {}'.format(self.user.get_full_name(), self.project.name)

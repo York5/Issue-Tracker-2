@@ -4,16 +4,21 @@
     <nav class="navbar custom_nav navbar-expand-lg navbar-dark">
         <a class="navbar-brand" href="{% url 'webapp:index' %}">Home</a>
         <a class="navbar-brand" href="{% url 'webapp:project_index' %}">Projects</a>
-        <a class="nav-link new_nav_btn" href="{% url 'webapp:project_delete' project.pk %}">Delete<span class="sr-only">(current)</span></a>
-        <a class="nav-link new_nav_btn" href="{% url 'webapp:project_update' project.pk %}">Edit<span class="sr-only">(current)</span></a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+        {% if perms.webapp.project_delete %}
+            <a class="nav-link new_nav_btn" href="{% url 'webapp:project_delete' project.pk %}">Delete<span class="sr-only">(current)</span></a>
+        {% endif %}
+        {% if perms.webapp.project_update %}
+            <a class="nav-link new_nav_btn" href="{% url 'webapp:project_update' project.pk %}">Edit<span class="sr-only">(current)</span></a>
+        {% endif %}
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
     </nav>
 {% endblock %}
 {% block title %}{{ project.project_name }}{% endblock %}
 {% block content %}
-    <h1 class="main_header"><b>{{ project.name}}</b></h1>
+    <h1 class="main_header"><b>{{ project.name }}</b></h1>
     <h5>Created: <b>{{ project.created_at|date:'d.m.Y H:i:s' }}</b></h5>
     <h5>Updated: <b>{{ project.updated_at|date:'d.m.Y H:i:s' }}</b></h5>
     {% if project.status == 'active' %}
@@ -23,8 +28,16 @@
     {% endif %}
     <h5>Project Users:</h5>
     {% for team in teams %}
-        <h5><b>{{ team.user.first_name }} {{ team.user.last_name }}</b></h5>
-        <h5>Started: {{ team.date_started}}</h5>
+
+        {% if team.date_finished is None %}
+            <div class="edit_team">
+                <div class="float-left mr-3"><a href="{% url "webapp:team_update" team.pk %}" class="edit_icon"><i
+                        class="fas fa-pencil-alt"></i></a></div>
+                <div class="float-right"></div>
+                <h5><b>{{ team.user.first_name }} {{ team.user.last_name }}</b></h5></div>
+            <div>
+            <h5>Started: {{ team.date_started }}</h5>
+        {% endif %}
     {% endfor %}
     <p><br>{{ project.description|escape|linebreaks }}</p>
     <hr>
@@ -32,7 +45,8 @@
     <div class="issue-list">
         {% for issue in issues %}
             <div class="issue">
-                <a class="card_header_link" href="{% url 'webapp:issue_view' issue.pk %}"><h3>{{ issue.summary }}</h3></a>
+                <a class="card_header_link" href="{% url 'webapp:issue_view' issue.pk %}"><h3>{{ issue.summary }}</h3>
+                </a>
                 <div class="pre">{{ issue.description }}</div>
             </div>
         {% empty %}
@@ -44,56 +58,57 @@
             {% include 'partial/pagination.html' %}
         {% endif %}
         <hr>
-    {% if request.user.is_authenticated %}
-        <form action="{% url 'webapp:project_issue_create' project.pk %}" method="POST" id="add_issue">
-            {% include 'partial/form.html' with button_text='Add New Issue' %}
-        </form>
-    {% endif %}
+        {% if request.user.is_authenticated %}
+            <form action="{% url 'webapp:project_issue_create' project.pk %}" method="POST" id="add_issue">
+                {% include 'partial/form.html' with button_text='Add New Issue' %}
+            </form>
+        {% endif %}
     </div>
 {% endblock %}
+
 {% block footer %}
-<footer class="page-footer my_footer font-small stylish-color-dark pt-4">
-  <div class="container text-center text-md-left">
-    <div class="row">
-      <hr class="clearfix w-100 d-md-none">
-      <div class="col-md-2 mx-auto">
-      <hr class="clearfix w-100 d-md-none">
-    </div>
-  </div>
-  <hr>
-  <ul class="list-unstyled list-inline text-center py-2">
-    <li class="list-inline-item">
-      <h5 class="mb-1">Hope you are enjoying the experience</h5>
-    </li>
-  </ul>
-  <hr>
-  <ul class="list-unstyled list-inline text-center">
-    <li class="list-inline-item">
-      <a class="btn-floating btn-fb mx-1">
-        <i class="fab fa-facebook-f"> </i>
-      </a>
-    </li>
-    <li class="list-inline-item">
-      <a class="btn-floating btn-tw mx-1">
-        <i class="fab fa-twitter"> </i>
-      </a>
-    </li>
-    <li class="list-inline-item">
-      <a class="btn-floating btn-gplus mx-1">
-        <i class="fab fa-google-plus-g"> </i>
-      </a>
-    </li>
-    <li class="list-inline-item">
-      <a class="btn-floating btn-li mx-1">
-        <i class="fab fa-linkedin-in"> </i>
-      </a>
-    </li>
-    <li class="list-inline-item">
-      <a class="btn-floating btn-dribbble mx-1">
-        <i class="fab fa-dribbble"> </i>
-      </a>
-    </li>
-  </ul>
-  <div class="footer-copyright text-center py-3">© 2019 Created by: Mikhail Vishin</div>
-</footer>
+    <footer class="page-footer my_footer font-small stylish-color-dark pt-4">
+        <div class="container text-center text-md-left">
+            <div class="row">
+                <hr class="clearfix w-100 d-md-none">
+                <div class="col-md-2 mx-auto">
+                    <hr class="clearfix w-100 d-md-none">
+                </div>
+            </div>
+            <hr>
+            <ul class="list-unstyled list-inline text-center py-2">
+                <li class="list-inline-item">
+                    <h5 class="mb-1">Hope you are enjoying the experience</h5>
+                </li>
+            </ul>
+            <hr>
+            <ul class="list-unstyled list-inline text-center">
+                <li class="list-inline-item">
+                    <a class="btn-floating btn-fb mx-1">
+                        <i class="fab fa-facebook-f"> </i>
+                    </a>
+                </li>
+                <li class="list-inline-item">
+                    <a class="btn-floating btn-tw mx-1">
+                        <i class="fab fa-twitter"> </i>
+                    </a>
+                </li>
+                <li class="list-inline-item">
+                    <a class="btn-floating btn-gplus mx-1">
+                        <i class="fab fa-google-plus-g"> </i>
+                    </a>
+                </li>
+                <li class="list-inline-item">
+                    <a class="btn-floating btn-li mx-1">
+                        <i class="fab fa-linkedin-in"> </i>
+                    </a>
+                </li>
+                <li class="list-inline-item">
+                    <a class="btn-floating btn-dribbble mx-1">
+                        <i class="fab fa-dribbble"> </i>
+                    </a>
+                </li>
+            </ul>
+            <div class="footer-copyright text-center py-3">© 2019 Created by: Mikhail Vishin</div>
+    </footer>
 {% endblock %}

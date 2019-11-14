@@ -1,10 +1,147 @@
 [
 {
+  "model": "auth.group",
+  "pk": 1,
+  "fields": {
+    "name": "Project Manager",
+    "permissions": [
+      [
+        "add_user",
+        "auth",
+        "user"
+      ],
+      [
+        "change_user",
+        "auth",
+        "user"
+      ],
+      [
+        "delete_user",
+        "auth",
+        "user"
+      ],
+      [
+        "view_user",
+        "auth",
+        "user"
+      ],
+      [
+        "add_issue",
+        "webapp",
+        "issue"
+      ],
+      [
+        "change_issue",
+        "webapp",
+        "issue"
+      ],
+      [
+        "delete_issue",
+        "webapp",
+        "issue"
+      ],
+      [
+        "view_issue",
+        "webapp",
+        "issue"
+      ],
+      [
+        "add_project",
+        "webapp",
+        "project"
+      ],
+      [
+        "change_project",
+        "webapp",
+        "project"
+      ],
+      [
+        "delete_project",
+        "webapp",
+        "project"
+      ],
+      [
+        "view_project",
+        "webapp",
+        "project"
+      ]
+    ]
+  }
+},
+{
+  "model": "auth.group",
+  "pk": 2,
+  "fields": {
+    "name": "Team Lead",
+    "permissions": [
+      [
+        "add_issue",
+        "webapp",
+        "issue"
+      ],
+      [
+        "change_issue",
+        "webapp",
+        "issue"
+      ],
+      [
+        "delete_issue",
+        "webapp",
+        "issue"
+      ],
+      [
+        "view_issue",
+        "webapp",
+        "issue"
+      ],
+      [
+        "add_team",
+        "webapp",
+        "team"
+      ],
+      [
+        "change_team",
+        "webapp",
+        "team"
+      ],
+      [
+        "delete_team",
+        "webapp",
+        "team"
+      ],
+      [
+        "view_team",
+        "webapp",
+        "team"
+      ]
+    ]
+  }
+},
+{
+  "model": "auth.group",
+  "pk": 3,
+  "fields": {
+    "name": "Developer",
+    "permissions": [
+      [
+        "add_issue",
+        "webapp",
+        "issue"
+      ],
+      [
+        "change_issue",
+        "webapp",
+        "issue"
+      ]
+    ]
+  }
+},
+{
   "model": "auth.user",
   "pk": 1,
   "fields": {
     "password": "pbkdf2_sha256$150000$RWUjjrCZPSn5$tNq2u9rSyWC0s0Rc5nA/W5kNynRZPQGJKCGJbGm04oQ=",
-    "last_login": "2019-11-07T09:50:49.944Z",
+    "last_login": "2019-11-14T11:55:55.480Z",
     "is_superuser": true,
     "username": "mike",
     "first_name": "",
@@ -76,7 +213,7 @@
   "pk": 8,
   "fields": {
     "password": "pbkdf2_sha256$150000$yspxEuVy7j8U$Yik+yD9bq5Vk1Noi455AKXLjVhVBo3/fJA5nD3L3wUI=",
-    "last_login": "2019-11-07T10:34:00.220Z",
+    "last_login": "2019-11-14T12:35:50.405Z",
     "is_superuser": false,
     "username": "Elon",
     "first_name": "Elon",
@@ -140,6 +277,72 @@
     "is_active": true,
     "date_joined": "2019-11-07T09:51:56.044Z",
     "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 12,
+  "fields": {
+    "password": "pbkdf2_sha256$150000$uirZ2At8Uv4z$75osAR5aeqEeZ93HynxxfEEE9K+ts0lbZdQyzdgN1jc=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "Developer",
+    "first_name": "Jacky",
+    "last_name": "Chan",
+    "email": "jackychan@china.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2019-11-14T12:11:14Z",
+    "groups": [
+      [
+        "Developer"
+      ]
+    ],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 13,
+  "fields": {
+    "password": "pbkdf2_sha256$150000$wev8mRYfNxRf$kw2L9c2WASpHkbv4T7ZDRllLA2ZpBzvxkfCso3cQqUE=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "Team_Lead",
+    "first_name": "Debera",
+    "last_name": "White",
+    "email": "debwhite@mail.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2019-11-14T12:17:47Z",
+    "groups": [
+      [
+        "Team Lead"
+      ]
+    ],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 14,
+  "fields": {
+    "password": "pbkdf2_sha256$150000$2eHl3ak8IysB$QKjCAN4SzdVRTLTz4gD2Rliu72pDMQZxBhtWcot+7yc=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "Project_Manager",
+    "first_name": "Whilson",
+    "last_name": "Byers",
+    "email": "whilb@yaho.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2019-11-14T12:20:48Z",
+    "groups": [
+      [
+        "Project Manager"
+      ]
+    ],
     "user_permissions": []
   }
 }

@@ -94,7 +94,7 @@
     "name": "Tesla Full Autopilot",
     "description": "Tesla Autopilot is an advanced driver-assistance system feature offered by Tesla that has lane centering, adaptive cruise control, self-parking, the ability to automatically change lanes, and the ability to summon the car to and from a garage or parking spot.",
     "created_at": "2019-10-11T10:40:00.514Z",
-    "updated_at": "2019-10-11T10:40:00.514Z",
+    "updated_at": "2019-11-14T10:22:18.051Z",
     "status": "active"
   }
 },
@@ -117,6 +117,39 @@
     "description": "New Shepard is a vertical-takeoff, vertical-landing, human-rated suborbital rocket that is being developed by Blue Origin as a commercial system for suborbital space tourism.",
     "created_at": "2019-10-11T10:48:09.149Z",
     "updated_at": "2019-10-11T10:48:09.149Z",
+    "status": "active"
+  }
+},
+{
+  "model": "webapp.project",
+  "pk": 13,
+  "fields": {
+    "name": "Methane engine",
+    "description": "Design and test new methane rocket engine slated to take astronauts to Mars",
+    "created_at": "2019-11-14T07:06:44.320Z",
+    "updated_at": "2019-11-14T10:12:44.670Z",
+    "status": "active"
+  }
+},
+{
+  "model": "webapp.project",
+  "pk": 14,
+  "fields": {
+    "name": "Project test 1",
+    "description": "Description for project test 1",
+    "created_at": "2019-11-14T08:30:11.287Z",
+    "updated_at": "2019-11-14T08:30:11.287Z",
+    "status": "active"
+  }
+},
+{
+  "model": "webapp.project",
+  "pk": 15,
+  "fields": {
+    "name": "Project test 2",
+    "description": "Description for project test 2",
+    "created_at": "2019-11-14T09:41:50.763Z",
+    "updated_at": "2019-11-14T09:41:50.764Z",
     "status": "active"
   }
 },
@@ -174,7 +207,7 @@
   "pk": 1,
   "fields": {
     "password": "pbkdf2_sha256$150000$RWUjjrCZPSn5$tNq2u9rSyWC0s0Rc5nA/W5kNynRZPQGJKCGJbGm04oQ=",
-    "last_login": "2019-11-07T09:50:49.944Z",
+    "last_login": "2019-11-14T11:55:55.480Z",
     "is_superuser": true,
     "username": "mike",
     "first_name": "",
@@ -246,7 +279,7 @@
   "pk": 8,
   "fields": {
     "password": "pbkdf2_sha256$150000$yspxEuVy7j8U$Yik+yD9bq5Vk1Noi455AKXLjVhVBo3/fJA5nD3L3wUI=",
-    "last_login": "2019-11-07T10:34:00.220Z",
+    "last_login": "2019-11-14T12:35:50.405Z",
     "is_superuser": false,
     "username": "Elon",
     "first_name": "Elon",
@@ -310,6 +343,66 @@
     "is_active": true,
     "date_joined": "2019-11-07T09:51:56.044Z",
     "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 12,
+  "fields": {
+    "password": "pbkdf2_sha256$150000$uirZ2At8Uv4z$75osAR5aeqEeZ93HynxxfEEE9K+ts0lbZdQyzdgN1jc=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "Developer",
+    "first_name": "Jacky",
+    "last_name": "Chan",
+    "email": "jackychan@china.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2019-11-14T12:11:14Z",
+    "groups": [
+      3
+    ],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 13,
+  "fields": {
+    "password": "pbkdf2_sha256$150000$wev8mRYfNxRf$kw2L9c2WASpHkbv4T7ZDRllLA2ZpBzvxkfCso3cQqUE=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "Team_Lead",
+    "first_name": "Debera",
+    "last_name": "White",
+    "email": "debwhite@mail.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2019-11-14T12:17:47Z",
+    "groups": [
+      2
+    ],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 14,
+  "fields": {
+    "password": "pbkdf2_sha256$150000$2eHl3ak8IysB$QKjCAN4SzdVRTLTz4gD2Rliu72pDMQZxBhtWcot+7yc=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "Project_Manager",
+    "first_name": "Whilson",
+    "last_name": "Byers",
+    "email": "whilb@yaho.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2019-11-14T12:20:48Z",
+    "groups": [
+      1
+    ],
     "user_permissions": []
   }
 },
@@ -385,16 +478,6 @@
 },
 {
   "model": "webapp.team",
-  "pk": 8,
-  "fields": {
-    "project": 10,
-    "user": 8,
-    "date_started": "2019-11-06T14:34:07.126Z",
-    "date_finished": "2019-11-06T14:34:07.126Z"
-  }
-},
-{
-  "model": "webapp.team",
   "pk": 9,
   "fields": {
     "project": 11,
@@ -441,6 +524,136 @@
     "user": 6,
     "date_started": "2019-11-06T14:35:10.707Z",
     "date_finished": "2019-11-06T14:35:10.707Z"
+  }
+},
+{
+  "model": "webapp.team",
+  "pk": 14,
+  "fields": {
+    "project": 13,
+    "user": 8,
+    "date_started": "2019-11-14T07:06:44.520Z",
+    "date_finished": "2019-11-14T07:06:44.520Z"
+  }
+},
+{
+  "model": "webapp.team",
+  "pk": 15,
+  "fields": {
+    "project": 14,
+    "user": 8,
+    "date_started": "2019-11-14T08:30:11.537Z",
+    "date_finished": "2019-11-14T08:30:11.537Z"
+  }
+},
+{
+  "model": "webapp.team",
+  "pk": 16,
+  "fields": {
+    "project": 14,
+    "user": 1,
+    "date_started": "2019-11-14T08:30:11.537Z",
+    "date_finished": "2019-11-14T08:30:11.537Z"
+  }
+},
+{
+  "model": "webapp.team",
+  "pk": 17,
+  "fields": {
+    "project": 14,
+    "user": 10,
+    "date_started": "2019-11-14T08:30:11.537Z",
+    "date_finished": "2019-11-14T08:30:11.537Z"
+  }
+},
+{
+  "model": "webapp.team",
+  "pk": 18,
+  "fields": {
+    "project": 14,
+    "user": 9,
+    "date_started": "2019-11-14T08:30:11.537Z",
+    "date_finished": "2019-11-14T08:30:11.537Z"
+  }
+},
+{
+  "model": "webapp.team",
+  "pk": 19,
+  "fields": {
+    "project": 15,
+    "user": 8,
+    "date_started": "2019-11-14T09:41:51.033Z",
+    "date_finished": "2019-11-14T09:41:51.033Z"
+  }
+},
+{
+  "model": "webapp.team",
+  "pk": 20,
+  "fields": {
+    "project": 15,
+    "user": 1,
+    "date_started": "2019-11-14T09:41:51.033Z",
+    "date_finished": "2019-11-14T09:41:51.033Z"
+  }
+},
+{
+  "model": "webapp.team",
+  "pk": 21,
+  "fields": {
+    "project": 15,
+    "user": 10,
+    "date_started": "2019-11-14T09:41:51.033Z",
+    "date_finished": "2019-11-14T09:41:51.033Z"
+  }
+},
+{
+  "model": "webapp.team",
+  "pk": 22,
+  "fields": {
+    "project": 15,
+    "user": 6,
+    "date_started": "2019-11-14T09:41:51.033Z",
+    "date_finished": "2019-11-14T09:41:51.033Z"
+  }
+},
+{
+  "model": "webapp.team",
+  "pk": 23,
+  "fields": {
+    "project": 13,
+    "user": 9,
+    "date_started": "2016-10-25T14:30:58Z",
+    "date_finished": null
+  }
+},
+{
+  "model": "webapp.team",
+  "pk": 24,
+  "fields": {
+    "project": 10,
+    "user": 9,
+    "date_started": null,
+    "date_finished": null
+  }
+},
+{
+  "model": "webapp.team",
+  "pk": 25,
+  "fields": {
+    "project": 10,
+    "user": 10,
+    "date_started": null,
+    "date_finished": null
+  }
+},
+{
+  "model": "webapp.team",
+  "pk": 26,
+  "fields": {
+    "project": 10,
+    "user": 8,
+    "date_started": null,
+    "date_finished": null
   }
 },
 {

@@ -1,6 +1,6 @@
 from urllib.parse import urlencode
 
-from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin, PermissionRequiredMixin
 from django.db.models import Q
 from django.shortcuts import redirect, get_object_or_404
 from django.urls import reverse, reverse_lazy
@@ -49,16 +49,20 @@ class IndexView(ListView):
         return None
 
 
-class IssueView(DetailView):
+class IssueView(PermissionRequiredMixin, DetailView):
     template_name = 'issues/issue.html'
     model = Issue
+    permission_required = 'webapp.issue_view'
+    permission_denied_message = '403 Access Denied!'
 
 
-class IssueCreateView(LoginRequiredMixin, CreateView):
+class IssueCreateView(PermissionRequiredMixin, CreateView):
     form_class = IssueForm
     model = Issue
     template_name = 'issues/create.html'
     context_object_name = 'issue_obj'
+    permission_required = 'webapp.issue_add'
+    permission_denied_message = '403 Access Denied!'
 
     def form_valid(self, form):
         form.instance.created_by = self.request.user
@@ -68,10 +72,12 @@ class IssueCreateView(LoginRequiredMixin, CreateView):
         return reverse('webapp:issue_view', kwargs={'pk': self.object.pk})
 
 
-class IssueForProjectCreateView(UserPassesTestMixin, CreateView):
+class IssueForProjectCreateView(PermissionRequiredMixin, UserPassesTestMixin, CreateView):
     model = Issue
     template_name = 'issues/create.html'
     form_class = ProjectIssueForm
+    permission_required = 'webapp.project_issue_create'
+    permission_denied_message = '403 Access Denied!'
 
     def test_func(self):
         project_users = []
@@ -102,11 +108,13 @@ class IssueForProjectCreateView(UserPassesTestMixin, CreateView):
         return get_object_or_404(Project, pk=project_pk)
 
 
-class IssueUpdateView(UserPassesTestMixin, UpdateView):
+class IssueUpdateView(PermissionRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Issue
     template_name = 'issues/update.html'
     form_class = IssueForm
     context_object_name = 'issue'
+    permission_required = 'webapp.issue_update'
+    permission_denied_message = '403 Access Denied!'
 
     def test_func(self):
         project_users = []
@@ -128,11 +136,13 @@ class IssueUpdateView(UserPassesTestMixin, UpdateView):
         return reverse('webapp:issue_view', kwargs={'pk': self.object.pk})
 
 
-class IssueDeleteView(UserPassesTestMixin, DeleteView):
+class IssueDeleteView(PermissionRequiredMixin, UserPassesTestMixin, DeleteView):
     model = Issue
     template_name = 'issues/delete.html'
     context_object_name = 'issue'
     success_url = reverse_lazy('webapp:index')
+    permission_required = 'webapp.issue_delete'
+    permission_denied_message = '403 Access Denied!'
 
     def test_func(self):
         project_users = []
