@@ -52,7 +52,7 @@ class IndexView(ListView):
 class IssueView(PermissionRequiredMixin, DetailView):
     template_name = 'issues/issue.html'
     model = Issue
-    permission_required = 'webapp.issue_view'
+    permission_required = 'webapp.view_issue'
     permission_denied_message = '403 Access Denied!'
 
 
@@ -61,7 +61,7 @@ class IssueCreateView(PermissionRequiredMixin, CreateView):
     model = Issue
     template_name = 'issues/create.html'
     context_object_name = 'issue_obj'
-    permission_required = 'webapp.issue_add'
+    permission_required = 'webapp.add_issue'
     permission_denied_message = '403 Access Denied!'
 
     def form_valid(self, form):
@@ -76,7 +76,7 @@ class IssueForProjectCreateView(PermissionRequiredMixin, UserPassesTestMixin, Cr
     model = Issue
     template_name = 'issues/create.html'
     form_class = ProjectIssueForm
-    permission_required = 'webapp.project_issue_create'
+    permission_required = 'webapp.add_issue'
     permission_denied_message = '403 Access Denied!'
 
     def test_func(self):
@@ -113,7 +113,7 @@ class IssueUpdateView(PermissionRequiredMixin, UserPassesTestMixin, UpdateView):
     template_name = 'issues/update.html'
     form_class = IssueForm
     context_object_name = 'issue'
-    permission_required = 'webapp.issue_update'
+    permission_required = 'webapp.change_issue'
     permission_denied_message = '403 Access Denied!'
 
     def test_func(self):
@@ -141,7 +141,7 @@ class IssueDeleteView(PermissionRequiredMixin, UserPassesTestMixin, DeleteView):
     template_name = 'issues/delete.html'
     context_object_name = 'issue'
     success_url = reverse_lazy('webapp:index')
-    permission_required = 'webapp.issue_delete'
+    permission_required = 'webapp.delete_issue'
     permission_denied_message = '403 Access Denied!'
 
     def test_func(self):

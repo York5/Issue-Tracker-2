@@ -52,10 +52,10 @@
                         <h6 class="card-subtitle mb-2 text-muted">Created: {{ issue.created_at|date:'d.m.Y H:i:s' }}</h6>
                         <p class="card-text">{{ issue.description }}</p>
                         <div class="card_links mt-auto row justify-content-center">
-                            {% if perms.webapp.issue_update %}
+                            {% if perms.webapp.change_issue %}
                                 <a href="{% url "webapp:issue_update" issue.pk %}" class="edit_icon"><i class="fas fa-pencil-alt"></i></a>
                             {% endif %}
-                            {% if perms.webapp.project_update %}
+                            {% if perms.webapp.delete_issue %}
                             <a href="{% url "webapp:issue_delete" issue.pk %}" class="card-link trash_can"><i class="fas fa-trash-alt"></i></a>
                             {% endif %}
                         </div>

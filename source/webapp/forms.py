@@ -46,9 +46,9 @@ class ProjectForm(forms.ModelForm):
         model = Project
         exclude = ['created_at', 'updated_at']
 
-    # def __init__(self, user, *args, **kwargs):
-    #     super(ProjectForm, self).__init__(*args, **kwargs)
-    #     self.fields['users'].initial = User.objects.filter(user=user)
+    def __init__(self, user_id, *args, **kwargs):
+        super(ProjectForm, self).__init__(*args, **kwargs)
+        self.fields['users'].initial = User.objects.get(id=user_id)
 
 
 class SimpleSearchForm(forms.Form):

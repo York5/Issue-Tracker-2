@@ -10,7 +10,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    {% if perms.webapp.project_add %}
+                    {% if perms.webapp.add_project%}
                         <a class="nav-link new_review_btn" href="{% url 'webapp:project_add' %}">+ Add Project <span
                                 class="sr-only">(current)</span></a>
                     {% endif %}
@@ -51,11 +51,11 @@
                         {% endif %}
                         <p class="card-text">{{ project.description }}</p>
                         <div class="card_links mt-auto row justify-content-center">
-                            {% if perms.webapp.project_update %}
+                            {% if perms.webapp.change_project %}
                                 <a href="{% url "webapp:project_update" project.pk %}" class="edit_icon"><i
                                         class="fas fa-pencil-alt"></i></a>
                             {% endif %}
-                            {% if perms.webapp.project_delete %}
+                            {% if perms.webapp.delete_project %}
                                 <a href="{% url "webapp:project_delete" project.pk %}" class="card-link trash_can"><i
                                         class="fas fa-trash-alt"></i></a>
                             {% endif %}

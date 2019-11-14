@@ -47,7 +47,7 @@ class ProjectIndexView(ListView):
 class ProjectView(PermissionRequiredMixin, DetailView):
     template_name = 'projects/project.html'
     model = Project
-    permission_required = 'webapp.project_view'
+    permission_required = 'webapp.view_project'
     permission_denied_message = '403 Access Denied!'
 
     def get_context_data(self, **kwargs):
@@ -74,17 +74,17 @@ class ProjectCreateView(PermissionRequiredMixin, CreateView):
     form_class = ProjectForm
     model = Project
     template_name = 'projects/project_create.html'
-    permission_required = 'webapp.project_add'
+    permission_required = 'webapp.add_project'
     permission_denied_message = '403 Access Denied!'
 
     def get_success_url(self):
         return reverse('webapp:project_view', kwargs={'pk': self.object.pk})
 
-    # def get_form_kwargs(self):
-    #     kwargs = super().get_form_kwargs()
-    #     if hasattr(self, 'object'):
-    #         kwargs.update({'user': self.request.user})
-    #     return kwargs
+    def get_form_kwargs(self):
+        kwargs = super().get_form_kwargs()
+        if hasattr(self, 'object'):
+            kwargs.update({'user_id': self.request.user.id})
+        return kwargs
 
 
 class ProjectUpdateView(PermissionRequiredMixin, UpdateView):
@@ -92,7 +92,7 @@ class ProjectUpdateView(PermissionRequiredMixin, UpdateView):
     template_name = 'projects/project_update.html'
     form_class = ProjectForm
     context_object_name = 'project'
-    permission_required = 'webapp.project_update'
+    permission_required = 'webapp.change_project'
     permission_denied_message = '403 Access Denied!'
 
     def get_success_url(self):
@@ -103,7 +103,7 @@ class ProjectDeleteView(PermissionRequiredMixin, DeleteView):
     model = Project
     template_name = 'projects/project_delete.html'
     success_url = reverse_lazy('webapp:project_index')
-    permission_required = 'webapp.project_delete'
+    permission_required = 'webapp.delete_project'
     permission_denied_message = '403 Access Denied!'
 
     def delete(self, request, *args, **kwargs):
