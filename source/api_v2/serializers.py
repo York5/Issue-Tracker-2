@@ -11,20 +11,25 @@ class IssueSerializer(serializers.ModelSerializer):
         fields = ('id', 'summary', 'description', 'status', 'type', 'project', 'created_at', 'created_by', 'assigned_to')
 
 
-class TeamSerializer(serializers.ModelSerializer):
-    # project = serializers.StringRelatedField(read_only=True)
-    # user = serializers.StringRelatedField(read_only=True)
+# class TeamSerializer(serializers.ModelSerializer):
+#
+#     class Meta:
+#         model = Team
+#         fields = ('project', 'user', 'date_started', 'date_finished')
 
-    class Meta:
-        model = Team
-        fields = ('project', 'user', 'date_started', 'date_finished')
+
+# class UserSerializer(serializers.ModelSerializer):
+#     class Meta:
+#         model = User
+#         fields = ('id', 'username')
 
 
 class ProjectSerializer(serializers.ModelSerializer):
     created_at = serializers.DateTimeField(read_only=True)
     updated_at = serializers.DateTimeField(read_only=True)
     issues = IssueSerializer(many=True, read_only=True)
-    # users = TeamSerializer(many=True, source='project_user')
+    users = serializers.PrimaryKeyRelatedField(queryset=User.objects.all(), many=True)
+
 
     class Meta:
         model = Project

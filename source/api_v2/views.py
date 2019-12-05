@@ -1,6 +1,6 @@
 from rest_framework import viewsets
 from webapp.models import Project, Issue, Team
-from api_v2.serializers import ProjectSerializer, IssueSerializer, TeamSerializer
+from api_v2.serializers import ProjectSerializer, IssueSerializer
 
 
 class ProjectViewSet(viewsets.ModelViewSet):
