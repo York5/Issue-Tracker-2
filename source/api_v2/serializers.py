@@ -30,7 +30,6 @@ class ProjectSerializer(serializers.ModelSerializer):
     issues = IssueSerializer(many=True, read_only=True)
     users = serializers.PrimaryKeyRelatedField(queryset=User.objects.all(), many=True)
 
-
     class Meta:
         model = Project
         fields = ('id', 'name', 'description', 'created_at', 'updated_at', 'status', 'users', 'issues')
